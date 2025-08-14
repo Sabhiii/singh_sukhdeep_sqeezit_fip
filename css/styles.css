@@ -40,18 +40,17 @@ nav a {
    3. HERO SECTION (HOME PAGE)
 =========================== */
 .hero {
-  padding-left: 470px;
+  padding-left: 470px; /* keeping your current layout */
   text-align: center;
 }
 
 .hero h1 {
   font-size: 2rem;
-  margin-bottom: 1rem;
 }
 
 .hero p {
   max-width: 600px;
-  margin: 0 auto 1.5rem;
+  margin: 0 auto;
 }
 
 /* Buttons */
@@ -62,14 +61,20 @@ nav a {
   color: white;
   text-decoration: none;
   border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
-.card img {
+.btn:hover {
+  background-color: #333;
+  transform: translateY(-3px);
+}
+
+/* Unified image rules (DRY) */
+.card img,
+.product-card img {
   max-width: 100%;
   height: auto;
   object-fit: contain;
 }
-
-
 
 /* ===========================
    4. PRODUCT PAGE
@@ -84,12 +89,11 @@ nav a {
   height: 100%;
   text-align: center;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.product-card img {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 /* ===========================
@@ -101,7 +105,6 @@ nav a {
 
 .about-section h1 {
   font-size: 2rem;
-  margin-bottom: 1rem;
   text-align: center;
 }
 
@@ -161,8 +164,8 @@ nav a {
 /* ===========================
    7. FOOTER
 =========================== */
+/* Base footer (no background to avoid clash with .site-footer) */
 footer {
-  background: #5ac348;
   text-align: center;
   padding: 1rem 0;
   margin-top: 2rem;
@@ -210,10 +213,11 @@ footer {
 .footer-links a {
   color:#fff;
   text-decoration:none;
+  transition: color 0.3s ease;
 }
-
 .footer-links a:hover {
   text-decoration:underline;
+  color: #ddd;
 }
 
 /* ===========================
@@ -228,3 +232,115 @@ footer {
     margin-bottom: 2rem;
   }
 }
+
+/* ===========================
+   9. ANIMATIONS (light)
+=========================== */
+
+/* Keyframes */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes zoomIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Scroll animation helpers */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===========================
+   SPACING & STYLE POLISH
+=========================== */
+
+/* Headings spacing */
+h1, h2, h3 {
+  margin-bottom: 0.75rem;
+}
+
+/* Paragraph spacing */
+p {
+  margin-bottom: 1rem;
+}
+
+/* Sections vertical padding */
+.section {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+/* Extra gap between hero text elements (single source of truth) */
+.hero h1 {
+  margin-bottom: 1rem;
+}
+.hero p {
+  margin-bottom: 1.5rem;
+}
+
+/* Buttons gap if stacked or inline */
+.btn + .btn {
+  margin-left: 0.5rem;
+}
+@media (max-width: 600px) {
+  .btn + .btn {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Product card internal spacing */
+.product-card h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+.product-card p {
+  margin-bottom: 0.75rem;
+}
+
+/* Footer section spacing */
+.site-footer h4 {
+  margin-bottom: 0.5rem;
+}
+.footer-links li {
+  margin-bottom: 0.25rem;
+}
+/* Headline rhythm matching wireframe */
+.section h2,
+.section h1 { margin-bottom: 1rem; }
+
+/* Signature/Featured flavour cards spacing */
+.product-card { padding: 1.25rem; }
+.product-card h3 { margin-bottom: .5rem; }
+.product-card p { margin-bottom: .75rem; }
+
+/* Why Choose SQUEEZIT: make 3 columns on desktop, stacked on mobile */
+.why-grid { display: grid; gap: 1rem; }
+@media (min-width: 768px) {
+  .why-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Special Promotions: equal cards and consistent buttons */
+.promo-grid { display: grid; gap: 1rem; }
+@media (min-width: 768px) {
+  .promo-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.promo-card { background:#f7f7f7; padding:1rem; border-radius:8px; text-align:center; }
+
+/* Newsletter block above footer */
+.newsletter { background:#f3f8f1; padding:1.25rem; border-radius:8px; }
+.newsletter h3 { margin-bottom:.5rem; }
+.newsletter form { display:flex; gap:.5rem; flex-wrap:wrap; }
+.newsletter input[type="email"] { flex:1; min-width: 220px; padding:.6rem .75rem; }
