@@ -3,17 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Squeezit — Fresh. Natural. Delicious.</title>
-
+  <title>Contact — Squeezit</title>
 
   <link rel="stylesheet" href="css/grid.css">
-  
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-
-  <header class="site-header">
+ 
+ <header class="site-header">
     <div class="grid-con header-grid">
       
       <a href="#" class="brand col-span-2 l-col-span-2">
@@ -21,68 +19,80 @@
       </a>
 
       
-      <nav class="main-nav col-span-2 l-col-span-10">
+      <nav class="main-nav col-span-2 l-col-start-11">
         <a href="index.html">Home</a>
-        <a href="products.html">Product</a>
-        <a href="contact.html">Contact</a>
-
+        <a href="Products.html">Product</a>
+        <a href="Contact.html">Contact</a>
+      
       </nav>
     </div>
   </header>
 
+ 
   <main class="section">
     <div class="container grid-con">
       <h1 class="col-span-full">Get in Touch</h1>
 
       <form id="contactForm" class="col-span-full m-col-span-7 l-col-span-7 form" novalidate>
-        <label>Name <input name="name" required></label>
-        <label>Email <input name="email" type="email" required></label>
-        <label>Subject <input name="subject" required></label>
-        <label>Message <textarea name="message" rows="5" required></textarea></label>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+
+        <label for="subject">Subject</label>
+        <input id="subject" name="subject" type="text" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
         <button class="btn" type="submit">Send Message</button>
-        <p id="contactMsg" class="hint" role="status" aria-live="polite"></p>
+        <p id="contactMsg" class="hint"></p>
       </form>
 
       <aside class="contact-info col-span-full m-col-span-5 l-col-span-5">
         <h2>Contact Us</h2>
         <ul class="list">
-          <li><strong>Email:</strong> contact@squeezit.shop</li>
-          <li><strong>Phone:</strong> +1 324 697 954</li>
-          <li><strong>Hours:</strong> Mon–Fri</li>
-          <li><strong>Address:</strong> 325 Hilton</li>
+          <li>Email: <a href="mailto:contact@squeezit.shop">contact@squeezit.shop</a></li>
+          <li>Phone: <a href="tel:+1324697954">+1 (324) 697-954</a></li>
+          <li>Hours: Mon–Fri</li>
+          <li>Address: 325 Hilton</li>
         </ul>
       </aside>
     </div>
   </main>
 
-<footer class="site-footer">
+  
+  <footer class="site-footer">
     <div class="grid-con">
 
-      <div class="footer-left" col-span-full l-col-span-4>
-        <img src="images/logo.svg" alt="Squeezit" class="footer-logo">
-       
+      <div class="footer-left col-span-full l-col-span-4">
+        <a href="index.html">
+          <img src="images/logo.svg" alt="Squeezit" class="footer-logo">
+        </a>
       </div>
 
       <div class="footer-mid col-span-full l-col-span-4">
         <h4>Links</h4>
         <ul class="footer-links">
-           <a href="index.html">Home</a>
-        <a href="products.html">Product</a>
-        <a href="contact.html">Contact</a>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Product</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
 
-      <!-- info column -->
       <div class="footer-right col-span-full l-col-span-4">
         <h4>Contact</h4>
         <p>Email: contact@squeezit.shop</p>
         <p>Phone: +1 324 697 954</p>
         <p>© 2025 Squeezit</p>
       </div>
+
     </div>
   </footer>
 
-  </div>
-</footer>
+  
+  <script src="js/scripts.js"></script>
+
 </body>
 </html>
